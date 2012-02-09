@@ -1,7 +1,7 @@
 # SmartyPants learns german
 
 This is a first quick hack to get correct german single and double opening and
-closing quotes.
+closing quotes. Mnemonic:
 
     9 Word 6
     99 Word 66
@@ -14,5 +14,5 @@ and `&lsquo;/&#8216;` for closing ones.
 
 - add other german typographical specialties (em/en dashes between dates, number
   ranges etc...)
-- make it interantional by providing all the correct defaults based on the user
+- make it international by providing all the correct defaults based on the user
   locale. 
