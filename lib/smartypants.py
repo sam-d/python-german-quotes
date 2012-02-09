@@ -605,24 +605,24 @@ def educateQuotes(str):
 			'                 # the quote
 			(?=\w)            # followed by a word character
 			""" % (dec_dashes,), re.VERBOSE)
-	str = opening_single_quotes_regex.sub(r"""\1&#8216;""", str)
+	str = opening_single_quotes_regex.sub(r"""\1&#8218;""", str)
 
 	closing_single_quotes_regex = re.compile(r"""
 			(%s)
 			'
 			(?!\s | s\b | \d)
 			""" % (close_class,), re.VERBOSE)
-	str = closing_single_quotes_regex.sub(r"""\1&#8217;""", str)
+	str = closing_single_quotes_regex.sub(r"""\1&#8216;""", str)
 
 	closing_single_quotes_regex = re.compile(r"""
 			(%s)
 			'
 			(\s | s\b)
 			""" % (close_class,), re.VERBOSE)
-	str = closing_single_quotes_regex.sub(r"""\1&#8217;\2""", str)
+	str = closing_single_quotes_regex.sub(r"""\1&#8216;\2""", str)
 
 	# Any remaining single quotes should be opening ones:
-	str = re.sub(r"""'""", r"""&#8216;""", str)
+	str = re.sub(r"""'""", r"""&#8218;""", str)
 
 	# Get most opening double quotes:
 	opening_double_quotes_regex = re.compile(r"""
@@ -637,7 +637,7 @@ def educateQuotes(str):
 			"                 # the quote
 			(?=\w)            # followed by a word character
 			""" % (dec_dashes,), re.VERBOSE)
-	str = opening_double_quotes_regex.sub(r"""\1&#8220;""", str)
+	str = opening_double_quotes_regex.sub(r"""\1&#8222;""", str)
 
 	# Double closing quotes:
 	closing_double_quotes_regex = re.compile(r"""
@@ -645,16 +645,16 @@ def educateQuotes(str):
 			"
 			(?=\s)
 			""" % (close_class,), re.VERBOSE)
-	str = closing_double_quotes_regex.sub(r"""&#8221;""", str)
+	str = closing_double_quotes_regex.sub(r"""&#8220;""", str)
 
 	closing_double_quotes_regex = re.compile(r"""
 			(%s)   # character that indicates the quote should be closing
 			"
 			""" % (close_class,), re.VERBOSE)
-	str = closing_double_quotes_regex.sub(r"""\1&#8221;""", str)
+	str = closing_double_quotes_regex.sub(r"""\1&#8220;""", str)
 
 	# Any remaining quotes should be opening ones.
-	str = re.sub(r'"', r"""&#8220;""", str)
+	str = re.sub(r'"', r"""&#8222;""", str)
 
 	return str
 
@@ -668,8 +668,8 @@ def educateBackticks(str):
 	Example output: &#8220;Isn't this fun?&#8221;
 	"""
 
-	str = re.sub(r"""``""", r"""&#8220;""", str)
-	str = re.sub(r"""''""", r"""&#8221;""", str)
+	str = re.sub(r"""``""", r"""&#8222;""", str)
+	str = re.sub(r"""''""", r"""&#8220;""", str)
 	return str
 
 
@@ -683,8 +683,8 @@ def educateSingleBackticks(str):
 	Example output: &#8216;Isn&#8217;t this fun?&#8217;
 	"""
 
-	str = re.sub(r"""`""", r"""&#8216;""", str)
-	str = re.sub(r"""'""", r"""&#8217;""", str)
+	str = re.sub(r"""`""", r"""&#8218;""", str)
+	str = re.sub(r"""'""", r"""&#8216;""", str)
 	return str
 
 
