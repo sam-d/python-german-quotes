@@ -1,4 +1,4 @@
-# SmartyPants learns german
+# german quotes for a well-known python typographic library
 
 This is a first quick hack to get correct german single and double opening and
 closing quotes. Mnemonic:
